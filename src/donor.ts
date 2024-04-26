@@ -1,4 +1,5 @@
 import { Candidate } from "./candidate";
+import { Employer } from "./employer";
 import { Occupation } from "./occupation";
 
 export class Donor {
@@ -8,7 +9,7 @@ export class Donor {
     city: string;
     state: string;
     occupation: Occupation;
-    employer: string;
+    employer: Employer;
     imageNumber: string;
     donatedAt: string;
     candidate: Candidate;
@@ -19,7 +20,7 @@ export class Donor {
         this.city = donation.contributor_city;
         this.state = donation.contributor_state;
         this.occupation = new Occupation(donation.contributor_occupation);
-        this.employer = donation.contributor_employer;
+        this.employer = new Employer(donation.contributor_employer);
         this.imageNumber = donation.image_number;
         this.donatedAt = donation.contribution_receipt_date;
         this.candidate = candidate;
@@ -31,7 +32,7 @@ export class Donor {
         console.log('city', this.city);
         console.log('state', this.state);
         console.log('occupation', this.occupation.displayName());
-        console.log('employer', this.employer);
+        console.log('employer', this.employer.displayName());
         console.log('imageNumber', this.imageNumber);
         console.log('donatedAt', this.donatedAt);
         console.log('candidate', this.candidate.name);
