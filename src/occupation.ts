@@ -6,7 +6,17 @@ export class Occupation {
         this.name = name;
     }
 
+    isInvalid(): boolean {
+        //console.log('Occupation: !this.descriptionExist()', !this.descriptionExist());
+        return this.name === null || 
+               (this.name.length < 2) || 
+               !this.descriptionExist();
+    }
+
     descriptionExist(): boolean {
+        //console.log('this.name', this.name);
+        //console.log('this.isSelfEmployed()', this.isSelfEmployed());
+        //console.log('this.isUnemployed()', this.isUnemployed());
         return (
             !this.isSelfEmployed() &&
             this.name !== null &&
@@ -15,7 +25,8 @@ export class Occupation {
             this.name !== "INFORMATION REQUESTED" &&
             this.name !== "NA" &&
             this.name !== "N/A" &&
-            this.name !== "Information Requested Per Best Efforts"
+            this.name !== "Information Requested Per Best Efforts" &&
+            this.name !== "DECLINE TO SAY"
         );
     }
 
@@ -38,16 +49,12 @@ export class Occupation {
         return (
             this.name === "UNEMPLOYED" || 
             this.name === "NOT CURRENTLY EMPLOYED" || 
-            this.name === "NOT EMPLOYED"
+            this.name === "NOT EMPLOYED" 
         )
     }
 
     isDisabled(): boolean {
         return this.name === "DISABLED" || this.name === "DISABLED/RETIRED";
-    }
-    
-    isInvalid(): boolean {
-        return this.name === null || this.name.length < 2 || !this.descriptionExist();
     }
     
     isSpecialDescription(): boolean {
@@ -80,22 +87,22 @@ export class Occupation {
             name.slice(-5) === "ATION" || name.slice(-13) === "INFRASTRUCTURE" ||
             name.slice(-8) === "SCIENCES" || name.slice(-12) === "ARCHITECTURE" ||
             name.slice(-3) === "LAW" || name.slice(-8) === "CLERICAL" ||
-            name.slice(-3) === "ITY"
+            name.slice(-3) === "ITY" || name === "IT" || name === "HEALTH CARE"
         );
     }
 
-    specialDescription(displayName: string): string | null {
+    specialDescription(): string | null {
         if (this.isJobType(this.name)) {
-            return `I do ${displayName}`;
+            return `I do ${this.displayName()}`;
         } 
         if (this.isJobCategory(this.name)) {
-            return `I work in ${displayName}`;
+            return `I work in ${this.displayName()}`;
         }
         return null;
     }
 
     displayName(): string {
-        if (this.name.length < 3) {
+        if (this.name === null || this.name.length < 3) {
             return this.name;
         }
     

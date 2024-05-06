@@ -3,8 +3,12 @@ export class Employer {
     name: string;
 
     constructor(name: string) {
-        this.name = name;
+        //this.name = name;
+        this.name = name.replace(/\s+/g, ' ');
+        if (this.name === null) { this.name = '' };
     }
+
+    //setName(name: string | null) { this.name = name; }
 
     isSelfEmployed(): boolean {
         return this.name === "SELF" || 

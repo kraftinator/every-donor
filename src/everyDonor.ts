@@ -23,12 +23,20 @@ class EveryDonor {
 
     async fetchDonations(): Promise<any> {
         let candidate: Candidate | undefined;
-        const randomValue = Math.floor(Math.random() * 100);
+        //const randomValue = Math.floor(Math.random() * 100);
+        let randomValue = 39;
+        //let randomValue = 40;
+        //let randomValue = 80;
 
         //let startDate = new Date('2024-01-01');
         //let endDate = new Date('2024-02-29');
-        let minDate: string = '2024-01-01';
-        let maxDate: string = '2024-02-29';
+        
+        //let minDate: string = '2024-01-01';
+        //let maxDate: string = '2024-02-29';
+
+        let minDate: string = '2024-03-01';
+        let maxDate: string = '2024-03-31';
+
         let year: string = '2024';
 
         if (randomValue <= 39) { 
@@ -73,8 +81,15 @@ class EveryDonor {
         for (var donation of results) {
             //console.log('donation', donation);
             let donor = new Donor(donation, this.currentCandidate);
-            donor.printDonor();
-            donors.push(donor);
+            if (donor.validDonor()) {
+                console.log(donor.cast());
+                donors.push(donor);
+                donor.printDonor();
+            } else {
+                console.log('*****INVALID', donor.cast());
+                donor.printDonor();
+            }
+
             //contributor = Contributor.new( name: r['contributor_name'], amount: r['contribution_receipt_amount'].to_i, city: r['contributor_city'], state: r['contributor_state'], occupation: r['contributor_occupation'], employer: r['contributor_employer'], candidate: candidate, image_number: r['image_number'], donated_at: r['contribution_receipt_date'] )
             //if contributor.valid_contributor? and contributor.can_tweet?
             //  contributors << contributor
