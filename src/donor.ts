@@ -32,10 +32,6 @@ export class Donor {
     }
 
     printDonor(): void {
-        //console.log('displayName', this.displayName());
-        //console.log('displayLocation', this.displayLocation());
-        //console.log('donatedAt', this.donatedAt);
-        
         console.log('name', this.name);
         console.log('amount', this.amount);
         console.log('city', this.city);
@@ -45,15 +41,9 @@ export class Donor {
         console.log('imageNumber', this.imageNumber);
         console.log('donatedAt', this.donatedAt);
         console.log('candidate', this.candidate.name);
-        
     }
 
-    //def can_tweet?
-    //!tweet.nil? ? true : false
-  //end
-
     validDonor(): boolean {
-        //console.log('this.occupation.isInvalid()', this.occupation.isInvalid());
         if (
             this.name === null || 
             this.name.trim() === '' || 
@@ -68,7 +58,6 @@ export class Donor {
         return true;
     }
 
-
     cast(): string | null {
         const t1: string = `I'm ${this.displayName()}. On ${this.formattedDate()} I gave $${Math.floor(this.amount)} to ${this.candidate.name}. I live in ${this.displayLocation()}.`;
         if (!this.displayEmployment()) { 
@@ -82,24 +71,6 @@ export class Donor {
     canCast(): boolean {
         return !!this.cast();
     }
-
-    //formattedDate(): string {
-    //    return this.donatedAt;
-    //}
-
-    /*
-    formattedDate(): string {
-        const date = new Date(this.donatedAt); // Convert the string to a Date object
-
-        // Extract the parts of the date
-        const month = date.getMonth() + 1; // getMonth() returns 0-11, +1 to make it 1-12
-        const day = date.getDate(); // getDate() returns 1-31
-        const year = date.getFullYear().toString().slice(-2); // Get last two digits of the year
-
-        // Format date as M/D/YY
-        return `${month}/${day}/${year}`;
-    }
-    */
 
     formattedDate(): string {
         // Parse the input date string into a Date object
@@ -127,7 +98,6 @@ export class Donor {
         return result;
     }
 
-    //displayEmployment(): string | null {
     displayEmployment(): any {
         // Build job description
         let result: string | null = this.buildEmployment();

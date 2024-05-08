@@ -4,19 +4,16 @@ export class Occupation {
 
     constructor(name: string) {
         this.name = name;
+        if (this.name !== null) { this.name = name.replace(/\s+/g, ' '); }
     }
 
     isInvalid(): boolean {
-        //console.log('Occupation: !this.descriptionExist()', !this.descriptionExist());
         return this.name === null || 
                (this.name.length < 2) || 
                !this.descriptionExist();
     }
 
     descriptionExist(): boolean {
-        //console.log('this.name', this.name);
-        //console.log('this.isSelfEmployed()', this.isSelfEmployed());
-        //console.log('this.isUnemployed()', this.isUnemployed());
         return (
             !this.isSelfEmployed() &&
             this.name !== null &&
@@ -87,7 +84,8 @@ export class Occupation {
             name.slice(-5) === "ATION" || name.slice(-13) === "INFRASTRUCTURE" ||
             name.slice(-8) === "SCIENCES" || name.slice(-12) === "ARCHITECTURE" ||
             name.slice(-3) === "LAW" || name.slice(-8) === "CLERICAL" ||
-            name.slice(-3) === "ITY" || name === "IT" || name === "HEALTH CARE"
+            name.slice(-3) === "ITY" || name === "IT" || name === "HEALTH CARE" ||
+            name === "MUSIC"
         );
     }
 
@@ -114,8 +112,6 @@ export class Occupation {
         words = words.map(word => this.isCapitalizedWord(word) ? word.toUpperCase() : word);
         
         return words.join(" ");
-        //return this.name;
-        //return 'Hello, world!';
     }
 
     isCapitalizedWord(word: string): boolean {
@@ -127,7 +123,7 @@ export class Occupation {
         const capitalizedWords: string[] = [
             "CEO", "CFO", "CIO", "CTO", "COO",
             "CPA", "CRNA", "IT", "VP", "SVP",
-            "EMT", "II", "III", "USAF"
+            "EMT", "II", "III", "USAF", "HR", "RE"
         ];
         return capitalizedWords;
     }

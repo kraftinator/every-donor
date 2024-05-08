@@ -3,12 +3,13 @@ export class Employer {
     name: string;
 
     constructor(name: string) {
-        //this.name = name;
-        this.name = name.replace(/\s+/g, ' ');
-        if (this.name === null) { this.name = '' };
+        this.name = name;
+        if (this.name === null) { 
+            this.name = '';
+        } else {
+            this.name = name.replace(/\s+/g, ' ');
+        }
     }
-
-    //setName(name: string | null) { this.name = name; }
 
     isSelfEmployed(): boolean {
         return this.name === "SELF" || 
@@ -60,7 +61,7 @@ export class Employer {
         return [
             "LLC", "BMI", "MRI", "NYS", "UPS", 
             "UBS", "UCLA", "UNMH", "MUFG", "OIG", 
-            "NASA", "USAP", "SEIU", "SCARNG"
+            "NASA", "USAP", "SEIU", "SCARNG", "UT"
         ];
     }
 
