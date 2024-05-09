@@ -1,4 +1,5 @@
-import dotenv from "dotenv";
+//import dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const FARCASTER_BOT_MNEMONIC = process.env.FARCASTER_BOT_MNEMONIC!;
