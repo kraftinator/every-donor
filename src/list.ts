@@ -1,5 +1,7 @@
 import EveryDonor from "./everyDonor"
 
+console.log('Hello, world!');
+
 async function list() {
     const everyDonor = new EveryDonor();
 
