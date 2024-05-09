@@ -36,5 +36,6 @@ const publishCast = async (msg: string) => {
 
 // Initial call to publish a motivational message.
 publishCast(
-  `gm! I'm here to brighten your day with daily cheer. Look forward to a warm 'gm' everyday!`
+  //`gm! I'm here to brighten your day with daily cheer. Look forward to a warm 'gm' everyday!`
+  `Hello, world!`
 );
