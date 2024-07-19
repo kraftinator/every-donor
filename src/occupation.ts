@@ -85,7 +85,7 @@ export class Occupation {
             name.slice(-8) === "SCIENCES" || name.slice(-12) === "ARCHITECTURE" ||
             name.slice(-3) === "LAW" || name.slice(-8) === "CLERICAL" ||
             name.slice(-3) === "ITY" || name === "IT" || name === "HEALTH CARE" ||
-            name === "MUSIC"
+            name === "MUSIC" || name === "TELEVISION"
         );
     }
 

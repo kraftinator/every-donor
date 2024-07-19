@@ -13,7 +13,6 @@ class EveryDonor {
             new Candidate("Joe Biden", "C00703975"),
             new Candidate("Donald Trump", "C00828541"),
             new Candidate("Robert F. Kennedy Jr", "C00836916"),
-            new Candidate("Marianne Williamson", "C00834424"),
             new Candidate("Jill Stein", "C00856112"),
             new Candidate("Cornel West", "C00843508")
         ];
@@ -26,28 +25,25 @@ class EveryDonor {
         const randomValue = Math.floor(Math.random() * 100);
 
         // Get date
-        const randomDate = this.getRandomDateInRange('2024-01-01', '2024-03-31');
+        const randomDate = this.getRandomDateInRange('2024-04-01', '2024-05-31');
         const minDate = randomDate;
         const maxDate = this.addDaysToDate(randomDate, 1);
 
-        if (randomValue <= 36) { 
+        if (randomValue <= 37) { 
             // Joe Biden
             this.currentCandidate = this.candidates[0]; 
-        } else if (randomValue >= 37 && randomValue <= 73) {
+        } else if (randomValue >= 38 && randomValue <= 74) {
             // Donald Trump
             this.currentCandidate = this.candidates[1];
-        } else if (randomValue >= 74 && randomValue <= 93) {
+        } else if (randomValue >= 75 && randomValue <= 95) {
             // RFK Jr
             this.currentCandidate = this.candidates[2];
-        } else if (randomValue >= 94 && randomValue <= 95) {
-            // Marianne Williamson
-            this.currentCandidate = this.candidates[3];
         } else if (randomValue >= 96 && randomValue <= 97) {
             // Jill Stein
-            this.currentCandidate = this.candidates[4];
+            this.currentCandidate = this.candidates[3];
         } else if (randomValue >= 98 && randomValue <= 99) {
             // Cornel West
-            this.currentCandidate = this.candidates[5];
+            this.currentCandidate = this.candidates[4];
         }
 
         // Build FEC API call
