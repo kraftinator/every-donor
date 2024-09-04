@@ -9,6 +9,7 @@ class EveryDonor {
     year: string;
 
     constructor() {
+        // NOTE: Kamala Harris replaced Joe Biden on 2024-07-21
         this.candidates = [
             new Candidate("Joe Biden", "C00703975"),
             new Candidate("Donald Trump", "C00828541"),
@@ -25,7 +26,7 @@ class EveryDonor {
         const randomValue = Math.floor(Math.random() * 100);
 
         // Get date
-        const randomDate = this.getRandomDateInRange('2024-04-01', '2024-05-31');
+        const randomDate = this.getRandomDateInRange('2024-05-01', '2024-06-30');
         const minDate = randomDate;
         const maxDate = this.addDaysToDate(randomDate, 1);
 
@@ -45,6 +46,8 @@ class EveryDonor {
             // Cornel West
             this.currentCandidate = this.candidates[4];
         }
+
+        this.currentCandidate = this.candidates[1]; 
 
         // Build FEC API call
         let url = `https://api.open.fec.gov/v1/schedules/schedule_a/?api_key=${DATA_GOV_API_KEY}&contributor_type=individual&per_page=100&committee_id=${this.currentCandidate.committeeId}&is_individual=true&min_date=${minDate}&max_date=${maxDate}&sort_nulls_large=true&min_amount=200&max_amount=2800&two_year_transaction_period=${this.year}`;
