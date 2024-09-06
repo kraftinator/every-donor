@@ -47,7 +47,7 @@ class EveryDonor {
             this.currentCandidate = this.candidates[4];
         }
 
-        this.currentCandidate = this.candidates[1]; 
+        //this.currentCandidate = this.candidates[1]; 
 
         // Build FEC API call
         let url = `https://api.open.fec.gov/v1/schedules/schedule_a/?api_key=${DATA_GOV_API_KEY}&contributor_type=individual&per_page=100&committee_id=${this.currentCandidate.committeeId}&is_individual=true&min_date=${minDate}&max_date=${maxDate}&sort_nulls_large=true&min_amount=200&max_amount=2800&two_year_transaction_period=${this.year}`;
