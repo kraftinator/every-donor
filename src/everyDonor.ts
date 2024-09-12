@@ -26,7 +26,7 @@ class EveryDonor {
         const randomValue = Math.floor(Math.random() * 100);
 
         // Get date
-        const randomDate = this.getRandomDateInRange('2024-05-01', '2024-06-30');
+        const randomDate = this.getRandomDateInRange('2024-06-01', '2024-07-20');
         const minDate = randomDate;
         const maxDate = this.addDaysToDate(randomDate, 1);
 
