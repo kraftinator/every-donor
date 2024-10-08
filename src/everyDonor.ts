@@ -11,11 +11,9 @@ class EveryDonor {
     constructor() {
         // NOTE: Kamala Harris replaced Joe Biden on 2024-07-21
         this.candidates = [
-            new Candidate("Joe Biden", "C00703975"),
+            new Candidate("Kamala Harris", "C00703975"),
             new Candidate("Donald Trump", "C00828541"),
-            new Candidate("Robert F. Kennedy Jr", "C00836916"),
             new Candidate("Jill Stein", "C00856112"),
-            new Candidate("Cornel West", "C00843508")
         ];
         this.currentCandidate = this.candidates[0];
         this.year = "2024";
@@ -26,28 +24,22 @@ class EveryDonor {
         const randomValue = Math.floor(Math.random() * 100);
 
         // Get date
-        const randomDate = this.getRandomDateInRange('2024-06-01', '2024-07-20');
+        const randomDate = this.getRandomDateInRange('2024-07-20', '2024-08-31');
         const minDate = randomDate;
         const maxDate = this.addDaysToDate(randomDate, 1);
 
-        if (randomValue <= 37) { 
-            // Joe Biden
+        if (randomValue <= 48) { 
+            // Kamala Harris
             this.currentCandidate = this.candidates[0]; 
-        } else if (randomValue >= 38 && randomValue <= 74) {
+        } else if (randomValue >= 49 && randomValue <= 97) {
             // Donald Trump
             this.currentCandidate = this.candidates[1];
-        } else if (randomValue >= 75 && randomValue <= 95) {
-            // RFK Jr
-            this.currentCandidate = this.candidates[2];
-        } else if (randomValue >= 96 && randomValue <= 97) {
-            // Jill Stein
-            this.currentCandidate = this.candidates[3];
         } else if (randomValue >= 98 && randomValue <= 99) {
-            // Cornel West
-            this.currentCandidate = this.candidates[4];
+            // Jill Stein
+            this.currentCandidate = this.candidates[2];
         }
 
-        //this.currentCandidate = this.candidates[1]; 
+        //this.currentCandidate = this.candidates[2]; 
 
         // Build FEC API call
         let url = `https://api.open.fec.gov/v1/schedules/schedule_a/?api_key=${DATA_GOV_API_KEY}&contributor_type=individual&per_page=100&committee_id=${this.currentCandidate.committeeId}&is_individual=true&min_date=${minDate}&max_date=${maxDate}&sort_nulls_large=true&min_amount=200&max_amount=2800&two_year_transaction_period=${this.year}`;
